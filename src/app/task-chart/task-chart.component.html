@@ -1,0 +1,41 @@
+<h1>Tasks</h1>
+
+<div>
+    <button (click)="toggleTasksView()">{{ showNonSensitiveTasks ? 'Show All Tasks' : 'Show Non-Sensitive Tasks' }}</button>
+</div>
+
+<ng-container *ngIf="taskList.length">
+    <table class="table-container">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Details</th>
+                <th>DueDate</th>
+                <th>FrequencyNumber</th>
+                <th>FrequencyType</th>
+                <th>TaskId</th>
+                <th>LastCompleted</th>
+                <th>Sensitive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of taskList">
+                <ng-container *ngIf="showNonSensitiveTasks ? !item.sensative : true">
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.details }}</td>
+                    <td>{{ item.due_Date }}</td>
+                    <td>{{ item.frequency_Number }}</td>
+                    <td>{{ item.frequency_Type }}</td>
+                    <td>{{ item.taskId }}</td>
+                    <td>{{ item.last_Completed }}</td>
+                    <td>{{ item.sensative }}</td>
+                    <td>
+                        <button (click)="updateLastCompleted(item.taskId)">Complete</button>
+                        <!-- <button>Delete</button> -->
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
