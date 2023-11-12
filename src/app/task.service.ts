@@ -11,7 +11,7 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   //private readonly url = 'https://localhost:7125/api/'
-  private readonly url = 'https://red-pond-0f3f0a60f.4.azurestaticapps.net/'
+  private readonly url = 'https://red-pond-0f3f0a60f.4.azurestaticapps.net/api/'
  
   GetTasks(): Observable<Task[]>{
     return this.http.get<Task[]>(this.url + 'Task');
