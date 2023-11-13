@@ -10,7 +10,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  //private readonly url = ''
+  private readonly url = ''
  
   GetTasks(): Observable<Task[]>{
     return this.http.get<Task[]>(this.url + 'Task');
