@@ -10,8 +10,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  //private readonly url = 'https://localhost:7125/api/'
-  private readonly url = 'https://taskappsjapi.azurewebsites.net/api/'
+  //private readonly url = ''
  
   GetTasks(): Observable<Task[]>{
     return this.http.get<Task[]>(this.url + 'Task');
